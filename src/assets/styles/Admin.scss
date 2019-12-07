@@ -1,0 +1,76 @@
+.login {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.025);
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 20px 50px 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    margin: 0 20px;
+}
+
+.login__container--logo {
+    height: 60px;
+}
+
+.login__container--img {
+    height: 100%;
+}
+
+.login__container--form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.input {
+    border: 1px solid black;
+    padding: 2px 5px;
+    border-radius: 15px;
+    height: 40px;
+    margin-bottom: 25px;
+    width: 250px;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.button {
+    height: 50px;
+    width: 200px;
+    background: none;
+    border: 2px solid #26946f;
+    color: #26946f;
+    font-weight: bold;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.button:hover {
+    color: white;
+    background-color: #26946f;
+}
+
+@media (min-width: 426px) {
+    .login__container--logo {
+        height: 90px;
+    }
+  } 
+
+  
+@media (min-width: 769px) {
+    .login__container--logo {
+        height: 115px;
+    }
+  } 

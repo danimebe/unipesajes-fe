@@ -1,0 +1,43 @@
+.footer__menu--title {
+    color: #4D992F;
+}
+
+.footer__menu--list {
+    list-style: none;
+}
+
+.footer__menu--list li::before {
+    content: "\2022";
+    color: #4D992F;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.footer__menu--ancle {
+    color: white;
+}
+
+
+.fa {
+    height: 30px;
+    font-size: 10px;
+    width: 30px !important;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.fa:hover {
+    opacity: 0.7;
+    color: white;
+}
+
+.fa-facebook {
+    background-color: #3B5998;
+}
+
+.fa-twitter {
+    background-color: #55ACEE;
+}

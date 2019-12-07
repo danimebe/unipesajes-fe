@@ -1,0 +1,29 @@
+.header__figure {
+  width: 225px;
+  margin: 0;
+}
+
+.header__figure--img {
+  width: 100%;
+}
+
+.nav-link:hover {
+  background-color: #26946f;
+  color: white !important;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin: 0;
+}
+
+.dropdown-item:active {
+  background-color: #26946f !important;
+  color: white !important;
+}
+
+@media (min-width: 321px) {
+  .header__figure {
+    width: 280px;
+  }
+}
