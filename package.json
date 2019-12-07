@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "rimraf dist && webpack --mode production",
-    "start": "webpack --mode production",
+    "start": "node server/index.js",
     "start:dev": "webpack-dev-server --open --mode development"
   },
   "author": "danimb",
@@ -15,6 +15,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
+    "express": "^4.17.1",
     "history": "^4.10.1",
     "ignore-styles": "^5.0.1",
     "jquery": "^3.4.1",
