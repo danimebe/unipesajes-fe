@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "rimraf dist && webpack --mode production",
+    "start": "webpack --mode production",
     "start:dev": "webpack-dev-server --open --mode development"
   },
   "author": "danimb",
