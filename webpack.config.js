@@ -7,7 +7,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+        filename: '[name].bundle.js',
+        publicPath: '/'
     },
     optimization: {
         minimize: true,
@@ -64,6 +65,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx']
+    },
+    devServer: {
+        historyApiFallback: true
     },
     plugins: [
         new HtmlWebpackPlugin({

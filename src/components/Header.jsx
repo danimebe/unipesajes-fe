@@ -2,16 +2,27 @@ import React from 'react';
 import logo from '../assets/images/logo.png';
 
 import '../assets/styles/Header.scss';
+import { Link, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const changeActive = (navItem) => {
-    console.log(navItem);
-    navItem.classList.add('active');
-    const active = document.getElementsByClassName('active')[0];
-    console.log(active);
-}
 
-const Header = () => (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
+
+const Header = ({ serviceRef }) => {
+
+    let history = useHistory();
+
+    const handleClick = async () => {
+        await history.push('/home');
+        scrollToRef(serviceRef);
+    }
+
+    const productsNavigate = (e) => {
+        e.preventDefault();
+        history.push('/products');
+    }
+
+    return <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
             <figure className="header__figure">
                 <img className="header__figure--img" src={logo} alt="Unipesajes" />
@@ -23,31 +34,37 @@ const Header = () => (
             <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Inicio</a>
+                        <Link to="home" className="nav-link"> Inicio</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#services">Servicios</a>
+                        <a className="nav-link" onClick={handleClick}>Servicios</a>
                     </li>
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a onClick={productsNavigate} className="nav-link dropdown-toggle" data-toggle="dropdown">
                             Productos
         </a>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="#">Pesaje</a>
-                            <a className="dropdown-item" href="#">Medición</a>
+                            <Link to="products" className="dropdown-item">Pesaje</Link>
+                            <a className="dropdown-item">Medición</a>
                             <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="#">Alimentación</a>
+                            <a className="dropdown-item">Alimentación</a>
                         </div>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#" tabIndex="-1" aria-disabled="true">Contacto</a>
+                        <Link to="contact" className="nav-link" href="#" tabIndex="-1" aria-disabled="true">Contacto</Link>
                     </li>
                 </ul>
             </div>
 
         </div>
     </nav>
-)
+}
+
+const mapStateToProps = (state) => {
+    return {
+        serviceRef: state.serviceRef
+    }
+}
 
 
-export default Header;
+export default connect(mapStateToProps, null)(Header);

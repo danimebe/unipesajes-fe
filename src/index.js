@@ -1,24 +1,37 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import App from './routes/App.jsx';
-import { createBrowserHistory } from 'history';
-import { Router } from 'react-router-dom';
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import { productsReducer } from "./reducers/index";
+import thunk from 'redux-thunk';
 import Favicon from 'react-favicon';
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
 import favicon from './assets/images/favicon.ico';
+import { fetchProducts, fetchCategories } from './containers/products.js';
 
-const history = createBrowserHistory();
+let store = createStore(productsReducer, applyMiddleware(thunk));
 
-ReactDOM.render(
-    <Router history={history}>
+store.dispatch(fetchProducts()).then(() => {
+    console.log(store.getState());
+})
+
+store.dispatch(fetchCategories()).then(() => {
+    console.log(store.getState());
+})
+
+
+render(
+
+    <>
         <Favicon url={favicon} />
-        <App />
-    </Router>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </>
     ,
     document.getElementById('root'));

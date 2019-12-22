@@ -4,6 +4,8 @@ import background1 from '../assets/images/background.jpg';
 import background2 from '../assets/images/background2.jpg';
 import background3 from '../assets/images/background3.png';
 
+import logo from '../assets/images/favicon.ico';
+
 import '../assets/styles/Hero.scss';
 
 const Hero = () => (
@@ -26,7 +28,7 @@ const Hero = () => (
                 <div className="row align-items-center">
                     <div className="col-md-10 offset-md-1 text-md-center text-center d-flex flex-column justify-content-around">
                         <div>
-                            <img src="./src/assets/images/favicon.ico" className="d-inline-block" height="90" alt="" />
+                            <img src={logo} className="d-inline-block" height="90" alt="" />
                             <h1 className="d-inline-block">Unipesajes</h1>
                             <h3>Básculas, balanzas y equipos de alimentación</h3>
                         </div>
